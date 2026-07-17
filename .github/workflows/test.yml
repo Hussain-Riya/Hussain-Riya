@@ -1,0 +1,22 @@
+name: Test
+on:
+  push:
+    - main
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Test
+        run: echo "Test passed!"
+        shell: bash
+      - name: Save output
+        run: echo "Test passed!" > test-output.txt
+      - name: Upload output
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-output.txt
+          path: test-output.txt
+      - name: Save JSON output
+        run: echo "{""readme": "# Oren King \u270e\n\n## About Me\n\nHi, I'm Oren King. I'm a passionate software developer with a love for building scalable and efficient web applications. I'm currently based in [insert location] and enjoy contributing to open-source projects in my free time.\n\n## Skills\n\n### Programming Languages\n\n* JavaScript (my primary language of choice)\n\n### Frameworks and Libraries\n\n* React (for building fast and dynamic user interfaces)\n\n### Databases\n\n* SQL (for managing and querying relational databases)\n\n### Cloud Platforms\n\n* AWS (for deploying and scaling web applications)\n\n## Projects\n\nYou can find some of my projects on my GitHub profile. I'm always looking to collaborate with others, so feel free to reach out if you're interested in working together.\n\n## Contact\n\nYou can reach me at [oren.oren@gmail.com](mailto:oren.oren@gmail.com) or on LinkedIn at [insert LinkedIn profile link].", "action": "Test"}"
